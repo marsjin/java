@@ -1,0 +1,33 @@
+public class Rectangle {
+    /*
+     * Define two public attributes width and height of type int.
+     */
+    // write your code here
+
+    /*
+     * Define a constructor which expects two parameters width and height here.
+     */
+    // write your code here
+    
+    /*
+     * Define a public method `getArea` which can calculate the area of the
+     * rectangle and return.
+     */
+    // write your code here
+    private int width = 0;
+    private int height = 0;
+    public Rectangle(int width1 , int height1){
+        this.width = width1;
+        this.height = height1;
+    }
+    
+    public int getArea(){
+        return this.width * this.height;
+    }
+    
+    public static void main(String[] str){
+        Rectangle rec = new Rectangle(3 , 4);
+        int area = rec.getArea();
+        System.out.println("Area: " + area);
+    }
+}
