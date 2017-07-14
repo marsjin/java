@@ -1,0 +1,30 @@
+public class Solution {
+    /**
+     * @param A a string
+     * @param B a string
+     * @return a boolean
+     */
+    public boolean stringPermutation(String a, String b) {
+        // Write your code here
+        if (a.length() != b.length()){
+            return false;
+        }
+        for (int i = 0; i < a.length(); i++){
+            int index = b.indexOf(a.charAt(i));
+            if (index >= 0){
+                b = b.substring(0 , index) + b.substring(index + 1);
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void  main(String[] args){
+        Solution sl = new Solution();
+        String str1="^&*#$@%@%@$%@$!*&*&*)))!)()())( **jsafhjhsajfhthisisa lint";
+        String str2 ="^&)!)(%))thijhsajfhs)())( **jsafh*#$@%@$!*&*&sa lint*@%@$i";
+        boolean ok = sl.stringPermutation(str1,str2);
+        System.out.println(ok);
+    }
+}
