@@ -1,0 +1,29 @@
+public class Solution {
+    /**
+     * @param s a string which consists of lowercase or uppercase letters
+     * @return the length of the longest palindromes that can be built
+     */
+    public int longestPalindrome(String s) {
+        // Write your code here
+        String sgStr = "";
+        String dbStr = "";
+        String curStr = "";
+        int index = -1;
+        while (s.length() > 0){
+            curStr = "" + s.charAt(0);
+            s = s.substring(1);
+            index = s.indexOf(curStr);
+            if (index >= 0){
+                dbStr += curStr;
+                s = s.substring(0 , index) + s.substring(index + 1);
+            } else {
+                sgStr += curStr;
+            }
+        }
+        int len = dbStr.length() * 2;
+        if (sgStr.length() > 0){
+            len += 1;
+        }
+        return len;
+    }
+}
