@@ -1,0 +1,28 @@
+public class Solution {
+    /**
+     * @param head a ListNode
+     * @param val an integer
+     * @return a ListNode
+     */
+    public ListNode removeElements(ListNode head, int val) {
+        // Write your code here
+        if (head == null){
+            return null;
+        }
+
+        ListNode preNode = new ListNode(0);
+        preNode.next = head;
+        ListNode curNode = head;
+        head = preNode;
+        while (curNode != null){
+            if (curNode.val == val){
+                preNode.next = curNode.next;
+                curNode = curNode.next;
+            } else {
+                preNode = curNode;
+                curNode = curNode.next;
+            }
+        }
+        return head.next;
+    }
+}
