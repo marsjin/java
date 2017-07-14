@@ -1,0 +1,26 @@
+public class Solution {
+    /**
+     * @param s a string
+     * @return it's index
+     */
+    public int firstUniqChar(String s) {
+        // Write your code here
+        int resIndex = -1;
+        String curStr = "";
+        String repStr = "_";
+        for (int i = 0; i < s.length(); i++){
+            curStr = "" + s.charAt(i);
+            if (curStr.equals(repStr)){
+                continue;
+            }
+            int nextIndex = s.indexOf(curStr , i + 1);
+            if (nextIndex < 0){
+                resIndex = i;
+                break;
+            } else {
+                s = s.replace(curStr , repStr);
+            }
+        }
+        return resIndex;
+    }
+}
