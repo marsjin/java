@@ -1,0 +1,39 @@
+public class Solution {
+    /**
+     * @param s a string
+     * @param t a string
+     * @return true if the characters in s can be replaced to get t or false
+     */
+    public boolean isIsomorphic(String s, String t) {
+        // Write your code here
+        if (s == null || t == null){
+            return false;
+        }
+        if (s.length() != t.length()){
+            return false;
+        }
+
+        int[] m1 = new int[128];
+        int[] m2 = new int[128];
+        for (int i = 0; i < 128; i++){
+            m1[i] = Integer.MAX_VALUE;
+            m2[i] = Integer.MAX_VALUE;
+        }
+
+        for (int i = 0; i < s.length(); ++i){
+            int cs = (int) s.charAt(i);
+            int ts = (int) t.charAt(i);
+            if (m1[cs] == Integer.MAX_VALUE){
+                if (m2[ts] == Integer.MAX_VALUE){
+                    m1[cs] = ts;
+                    m2[ts] = cs;
+                } else {
+                    return false;
+                }
+            } else if (m1[cs] != ts || m2[ts] != cs){
+                return false;
+            }
+        }
+        return true;
+    }
+}
